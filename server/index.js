@@ -8,7 +8,6 @@ app.use(cors());
 app.use(express.json());
 
 
-
 const db = mysql.createConnection({
   user: "root",
   host: "localhost",
@@ -130,7 +129,45 @@ app.post("/makeOrder", (req,res) =>
 
 // Dashboard
 
+app.get("/summary", (req, res) => {
+  db.query("SELECT (SELECT count(*) FROM Item) as OrderNum, (SELECT count(*) FROM Branches) as BranchesNum, (SELECT count(*) FROM Customer) as CustomerNum, (select sum(Item.Price) from Order_Item , Item where Order_Item.Item_id = Item.ID) as totalRevenue", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
 
+app.get("/ordersSummary", (req, res) => {
+  db.query("select status, count(ID) as Num from Orders group by status;", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.get("/trendingItems", (req, res) => {
+  db.query("select Order_Item.Item_id, Item.Name , Item.Type ,Item.Price ,count(Order_Item.Item_id) as totalPurchases, (Item.Price * count(Order_Item.Item_id)) as totalRevenue from Order_Item, Item where Item.ID = Order_Item.Item_id group by Item_id order by totalPurchases desc limit 5;", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.get("/showOrders", (req, res) => {
+  db.query("select c.firstName , o.Payment_method , o.orderDate , o.status from orders as o , customer as c where DATE(o.orderDate) = CURDATE() and o.Customer_ID = c.ID;", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 // Check connection
 
