@@ -3,10 +3,8 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 
-
 app.use(cors());
 app.use(express.json());
-
 
 const db = mysql.createConnection({
   user: "root",
@@ -14,7 +12,6 @@ const db = mysql.createConnection({
   password: "12345",
   database: "Restaurant_Reservation_System",
 });
-
 
 app.post("/signup", (req, res) => {
     // console.log(req.body);
@@ -24,7 +21,6 @@ app.post("/signup", (req, res) => {
     const password = req.body.password;
     const address = req.body.address;
     const phone = req.body.phone;
-
     db.query(
       "SELECT * from Customer WHERE EMAIL = ?",
       email,
@@ -54,9 +50,8 @@ app.post("/signup", (req, res) => {
 });
 
 app.post("/signin", (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
-
+  const email = req.body.email;
+  const password = req.body.password;
   db.query(
     "SELECT * from Customer WHERE EMAIL = ? AND PASSWORD = ?",
     [email, password],
@@ -122,9 +117,6 @@ app.post("/makeOrder", (req,res) =>
       }
     }
   });
-
-
-  
 });
 
 // Dashboard
