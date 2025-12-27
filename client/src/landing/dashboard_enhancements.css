@@ -1,0 +1,176 @@
+/* Dashboard Enhancements */
+
+/* General overrides for a more premium feel */
+body {
+    background-color: #f4f6f9;
+    /* Softer background */
+}
+
+/* Card Styling */
+.card {
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Soft, deep shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    /* For gradient spills */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-total {
+    position: relative;
+    background: #fff;
+    padding: 25px;
+    color: #fff;
+    /* Default text color for gradient cards */
+}
+
+/* Gradient Backgrounds for Summary Cards - Using specific classes */
+
+/* Total Product - Blue Gradient */
+.card-total.kpi-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Total Client - Green/Teal Gradient */
+.card-total.kpi-2 {
+    background: linear-gradient(135deg, #2af598 0%, #009efd 100%) !important;
+}
+
+/* Total Branches - Orange/Pink Gradient */
+.card-total.kpi-3 {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%) !important;
+    color: #fff;
+}
+
+/* Total Revenue - Purple Gradient */
+.card-total.kpi-4 {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
+}
+
+
+/* Text Styling inside Cards */
+.card-total h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #fff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-total p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff !important;
+    opacity: 1 !important;
+    /* Force visibility */
+}
+
+/* Icons in Cards */
+.card-total .tx-24,
+.card-total .tx-22 {
+    font-size: 2rem;
+    opacity: 1 !important;
+    /* Force visibility */
+}
+
+.card-total i {
+    color: #fff !important;
+    /* Force icons to white */
+    margin: 0 2px;
+    opacity: 0.8;
+}
+
+/* Tables */
+.card-table {
+    border-radius: 15px !important;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+.slim-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    vertical-align: middle;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.table-responsive {
+    padding: 0 10px 10px 10px;
+}
+
+/* Charts Area */
+.pie-chart-container {
+    padding: 20px;
+    height: 300px;
+    position: relative;
+}
+
+/* Footer / Legend area for charts */
+.card-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: #fafafa !important;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+
+/* Images in Table */
+.img-thumbnail,
+.wd-55 {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Breadcrumbs */
+.breadcrumb-item a {
+    color: #667eea;
+}
+
+.slim-pagetitle {
+    color: #333;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* Report Header */
+.report-summary-header h4 {
+    font-weight: 800;
+    color: #222;
+}
+
+.report-summary-header p {
+    color: #777;
+}
+
+/* Badges */
+.square-8,
+.square-10 {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
